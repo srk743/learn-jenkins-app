@@ -2,10 +2,22 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
+        stage('Build') {
+            agent {
+                Docker {
+                    image 'nod:18-alpine'
+                    reuseNode true
+                } 
+            }
             steps {
-                sh 'echo "executing using sheel hello Jenkins"'
-                sh 'whoami'
+                sh '''
+
+                ls -la
+                npm --version
+                node --version
+                npm ci
+                npm run build
+                '''
             }
         }
     }

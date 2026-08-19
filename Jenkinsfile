@@ -19,13 +19,14 @@ pipeline {
                 npm run build
                 '''
             }
-            stage ('Test')
+            
+        }
+        stage ('Test')
         {
             sh '''
-            echo "testing the app'
+            echo "testing the app"
             npm test
             '''
-        }
         }
         
     }

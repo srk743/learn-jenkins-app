@@ -26,7 +26,7 @@ pipeline {
         {
             steps{
 sh '''
-            echo "testing the app"
+            test -f build/index.html
           
             '''
             }

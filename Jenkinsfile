@@ -23,10 +23,13 @@ pipeline {
         }
         stage ('Test')
         {
-            sh '''
+            steps{
+sh '''
             echo "testing the app"
             npm test
             '''
+            }
+            
         }
         
     }

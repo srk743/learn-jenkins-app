@@ -2,7 +2,8 @@ pipeline {
     agent any
 
     environment{
-        NETLIFY_SITE_ID='9f4b537b-d23d-4321-a37b-e77e8b64fbcd'
+        NETLIFY_SITE_ID ='9f4b537b-d23d-4321-a37b-e77e8b64fbcd'
+        NETLIFY_AUTH_TOKEN = credentials('netlify-token')
     }
     stages {
         stage('Build') {
@@ -60,6 +61,7 @@ pipeline {
                 node_modules/.bin/netlify --version
 
                 echo "Deploying to poduction. Site ID: $NETLIFY_SITE_ID"
+                node_modules/.bin/netlify status
                 '''
             }
 

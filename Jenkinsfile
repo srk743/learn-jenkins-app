@@ -47,7 +47,7 @@ pipeline {
                 docker {
 
                     image 'node:18-alpine'
-                    reusedNode true
+                    reuseNode true
                 }
             }
 

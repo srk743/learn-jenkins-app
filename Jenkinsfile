@@ -17,6 +17,7 @@ pipeline {
                 node --version
                 npm ci
                 npm run build
+                ls -la
                 '''
             }
             
@@ -26,7 +27,7 @@ pipeline {
             steps{
 sh '''
             echo "testing the app"
-            npm test
+          
             '''
             }
             

@@ -9,7 +9,7 @@ pipeline {
         stage('Build') {
             agent {
                 docker {
-                    image 'node:18-alpine'
+                    image 'node:18'
                     reuseNode true
                 } 
             }
@@ -30,7 +30,7 @@ pipeline {
         {
             agent {
                 docker {
-                    image 'node:18-alpine'
+                    image 'node:18'
                     reuseNode true
                 } 
             }
@@ -50,7 +50,7 @@ pipeline {
 
                 docker {
 
-                    image 'node:18-alpine'
+                    image 'node:18'
                     reuseNode true
                 }
             }
@@ -63,7 +63,7 @@ pipeline {
                 echo "Deploying to poduction. Site ID: $NETLIFY_SITE_ID"
                 node_modules/.bin/netlify status
                 node_modules/.bin/netlify deploy --dir=build --prod
-                
+
                 '''
             }
 
@@ -71,11 +71,4 @@ pipeline {
         
     }
 
-    post {
-
-        always {
-
-            junit 'test-results/junit.xml'
-        }
-    }
 }
